@@ -5,14 +5,48 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title></title>
-<!--   <link rel="stylesheet" href="style.css" type="text/css"> -->
+  <title>Nashville Software School: Make Me a Sandwich Project</title>
+  <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans:300,400' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="style.css" type="text/css">
+  </head>
 </head>
 
 
 <body>
-	<p id="new"></p>
 
-	<script type="text/javascript" src="main.js"></script>
+  <header>
+    <h1>jimmi jahn's</h1>
+  </header>
+
+  <main>
+    <article id="sandwich">
+      <h2> Would you like a sandwich?</h2>
+      <button type="button" name="sandwich" id="yes-sandwich">Yes</button>
+      <button type="button" name="sandwich" id="no-sandwich">No</button>
+    </article>
+    
+    <article id="selections">
+      <h3>Please select your toppings:</h3>
+      <div id="toppings">
+        <ul>
+          <li><button type="button" name="pickle" id="pickle">Pickles</button></li>
+          <li><button type="button" name="lettuce" id="lettuce">Lettuce</button></li>
+          <li><button type="button" name="tomato" id="tomato">Tomato</button></li>
+        </ul>
+        <ul>
+          <li><button type="button" name="ketchup" id="ketchup">Ketchup</button></li>
+          <li><button type="button" name="mustard" id="mustard">Mustard</button></li>
+          <li><button type="button" name="mayo" id="mayo">Mayo</button></li>
+        </ul>
+      </div>
+      <div><button type="button" name="makeSandwich" id="makeSandwich">Make it!</button></div>
+      <p id="new"></p>
+    </article>
+  </main>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  	<script type="text/javascript" src="main.js"></script>
+
+
 </body>
 </html>

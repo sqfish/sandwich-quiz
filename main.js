@@ -61,38 +61,88 @@ function addMayo() {
 
 function makeMeASandwich(pickle, lettuce, tomato, ketchup, mustard, mayo) {
   var sandwich = new Sandwich;
-  var message = "My sandwich has";
+  var message = "";
 
   if (pickle) {
     sandwich.pickle = addPickle();
-    message = message + " pickles";
+    message = message + " pickles,";
   }
   if (lettuce) {
     sandwich.lettuce = addLettuce();
-    message = message + " lettuce";
+    message = message + " lettuce,";
   }
   if (tomato) {
     sandwich.tomato = addTomato();
-    message = message + " tomatoes";
+    message = message + " tomatoes,";
   }
   if (ketchup) {
     sandwich.ketchup = addKetchup();
-    message = message + " ketchup";
+    message = message + " ketchup,";
   }
   if (mustard) {
     sandwich.mustard = addMustard();
-    message = message + " mustard";
+    message = message + " mustard,";
   }
   if (mayo) {
     sandwich.mayo = addMayo();
-    message = message + " mayo";
+    message = message + " mayo,";
   }
-
+  message = message.slice(0, -1);
   return message;
 }
 
-var sandwichMessage = makeMeASandwich(true, true, true, true, true, true);
+
+var $yes_sandwich = $(document.getElementById("yes-sandwich"));
+var $no_sandwich = $(document.getElementById("no-sandwich"));
+var $selections = $(document.getElementById("selections"));
+var $toppings = $(document.getElementById("toppings"));
+var $makeIt = $(document.getElementById("makeSandwich"));
 
 var element = document.getElementById("new");
-element.innerHTML = sandwichMessage;
+
+$yes_sandwich.click(function(){
+  $selections.show();
+  $("main").css("min-height", "max-content");
+});
+
+$no_sandwich.click(function(){
+  $("button").removeClass();
+  $("#toppings button").css( "opacity", ".5" );
+  $("#toppings button").css( "font-weight", "400" );
+  $selections.hide();
+  element.innerHTML = "";
+});
+
+
+$toppings.find("button").click(function() {
+  if ($(this).hasClass("selected") !== true) {
+    $(this).css( "opacity", "1" );
+    $(this).css( "font-weight", "700" );
+  } else { 
+    $(this).css( "opacity", ".5" );
+    $(this).css( "font-weight", "400" );
+  }
+  $(this).toggleClass("selected");
+});
+
+$makeIt.click(function(){
+  var pickleChoice = $("#pickle").hasClass("selected");
+  var lettuceChoice = $("#lettuce").hasClass("selected");
+  var tomatoChoice = $("#tomato").hasClass("selected");
+  var ketchupChoice = $("#ketchup").hasClass("selected");
+  var mustardChoice = $("#mustard").hasClass("selected");
+  var mayoChoice = $("#mayo").hasClass("selected");
+  var sandwichMessage = makeMeASandwich(pickleChoice, lettuceChoice, tomatoChoice, ketchupChoice, mustardChoice, mayoChoice);
+  element.innerHTML = "<p>Here is your magic INVISIBLE sandwich with</p><p>" + sandwichMessage + ". You're welcome.</p>";
+});
+
+
+// document.getElementById("sandwich").addEventListener("click", function(){
+//   document.write("ok");
+// });
+// var response = 
+// var pickle = window.confirm('Would you like to add pickles to your sandwich?\nSelect "OK" to add pickles or cancel to decline')
+// var sandwichMessage = makeMeASandwich(true, true, true, true, true, true);
+
+
 
