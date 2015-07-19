@@ -18,7 +18,6 @@
   7. Write to the document something like this...
     "My sandwich has pickle, ketchup, mustard on it"
 */
-
 function Sandwich(pickle, lettuce, tomato, ketchup, mustard, mayo) {
   this.pickle = false;
   this.lettuce = false;
@@ -26,7 +25,6 @@ function Sandwich(pickle, lettuce, tomato, ketchup, mustard, mayo) {
   this.ketchup = false;
   this.mustard = false;
   this.mayo = false;
-
 }
 
 function addPickle() {
@@ -91,7 +89,6 @@ function makeMeASandwich(pickle, lettuce, tomato, ketchup, mustard, mayo) {
   return message;
 }
 
-
 var $yes_sandwich = $(document.getElementById("yes-sandwich"));
 var $no_sandwich = $(document.getElementById("no-sandwich"));
 var $selections = $(document.getElementById("selections"));
@@ -100,32 +97,31 @@ var $makeIt = $(document.getElementById("makeSandwich"));
 
 var element = document.getElementById("new");
 
-$yes_sandwich.click(function(){
+$yes_sandwich.click(function() {
   $selections.show();
   $("main").css("min-height", "max-content");
 });
 
-$no_sandwich.click(function(){
+$no_sandwich.click(function() {
   $("button").removeClass();
-  $("#toppings button").css( "opacity", ".5" );
-  $("#toppings button").css( "font-weight", "400" );
+  $("#toppings button").css("opacity", ".5");
+  $("#toppings button").css("font-weight", "400");
   $selections.hide();
   element.innerHTML = "";
 });
 
-
 $toppings.find("button").click(function() {
   if ($(this).hasClass("selected") !== true) {
-    $(this).css( "opacity", "1" );
-    $(this).css( "font-weight", "700" );
-  } else { 
-    $(this).css( "opacity", ".5" );
-    $(this).css( "font-weight", "400" );
+    $(this).css("opacity", "1");
+    $(this).css("font-weight", "700");
+  } else {
+    $(this).css("opacity", ".5");
+    $(this).css("font-weight", "400");
   }
   $(this).toggleClass("selected");
 });
 
-$makeIt.click(function(){
+$makeIt.click(function() {
   var pickleChoice = $("#pickle").hasClass("selected");
   var lettuceChoice = $("#lettuce").hasClass("selected");
   var tomatoChoice = $("#tomato").hasClass("selected");
@@ -135,14 +131,3 @@ $makeIt.click(function(){
   var sandwichMessage = makeMeASandwich(pickleChoice, lettuceChoice, tomatoChoice, ketchupChoice, mustardChoice, mayoChoice);
   element.innerHTML = "<p>Here is your magic INVISIBLE sandwich with</p><p>" + sandwichMessage + ". You're welcome.</p>";
 });
-
-
-// document.getElementById("sandwich").addEventListener("click", function(){
-//   document.write("ok");
-// });
-// var response = 
-// var pickle = window.confirm('Would you like to add pickles to your sandwich?\nSelect "OK" to add pickles or cancel to decline')
-// var sandwichMessage = makeMeASandwich(true, true, true, true, true, true);
-
-
-
